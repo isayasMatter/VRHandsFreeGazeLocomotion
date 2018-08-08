@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SHeadVHead.unity
     guid: 3ed445f14fd888747abb10b07471a952
+  - enabled: 1
+    path: Assets/Scenes/SHeadVEye.unity
+    guid: fe7847ebe55cbec4d849849c0d09f36d
   m_configObjects: {}
