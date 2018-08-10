@@ -1469,9 +1469,8 @@ GameObject:
   - component: {fileID: 2023541591}
   - component: {fileID: 2023541592}
   - component: {fileID: 2023541594}
-  - component: {fileID: 2023541595}
   - component: {fileID: 2023541593}
-  - component: {fileID: 2023541596}
+  - component: {fileID: 2023541595}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1555,7 +1554,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2023541588}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5a431923a1365a4fb0b995641d068d5, type: 3}
   m_Name: 
@@ -1571,27 +1570,9 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2023541588}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 789368642c0440b48bb40f8e0e005ac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 10
-  maxMovementSpeed: 50
-  minMovementSpeed: 1
-  leftTurnThreshold: 0.4
-  rightTurnThreshold: 0.6
-  backWardMovementThreshold: 0.45
-  forwardMovementThreshold: 0.55
---- !u!114 &2023541596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2023541588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b7b0fa711b1b041b6215f1e33d049d, type: 3}
+  m_Script: {fileID: 11500000, guid: e1c6df769dc535f46a9ec706b690f560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
