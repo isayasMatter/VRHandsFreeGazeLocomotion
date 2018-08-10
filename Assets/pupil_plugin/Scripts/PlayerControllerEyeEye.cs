@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControllerHeadEye : MonoBehaviour {
+public class PlayerControllerEyeEye : MonoBehaviour {
 	public float rotationSpeed = 50.0f;
 	
 	public float maxMovementSpeed = 50.0f;
@@ -44,14 +44,14 @@ public class PlayerControllerHeadEye : MonoBehaviour {
 
 	void checkRotation(float x, float y){		
 
-		// if(x < leftTurnThreshold){
-		// 	Debug.Log("Rotate left");
-		// 	transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime * -1);
-		// }
-		// if (x > rightTurnThreshold){
-		// 	Debug.Log("Rotate right");
-		// 	transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
-		// }
+		if(x < 0.5){
+			Debug.Log("Rotate left");
+			transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime * -1);
+		}
+		if (x > 0.5){
+			Debug.Log("Rotate right");
+			transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+		}
 		// if((x >= leftTurnThreshold) && (x<=rightTurnThreshold)){
 		// 	Debug.Log("Do not Rotate");
 		// }
