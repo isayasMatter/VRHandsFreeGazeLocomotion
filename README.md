@@ -1,1 +1,1 @@
-# Hands-Free gaze based locomotion technique for VR
+# Gaze based hands-Free locomotion technique for VR
