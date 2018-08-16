@@ -18,8 +18,11 @@ public class PlayerControllerEyeHead : MonoBehaviour {
 
 	public float forwardMovementThreshold = 0.55f;
 
+	public Vector2 targetCharacterDirection;
+ 
+    
 	void Start () {
-		
+		targetCharacterDirection = transform.localRotation.eulerAngles;
 	}
 	
 	// Update is called once per frame
@@ -44,14 +47,19 @@ public class PlayerControllerEyeHead : MonoBehaviour {
 
 	void checkRotation(float x, float y){		
 
-		if(x < 0.5){
-			Debug.Log("Rotate left");
-			transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime * -1);
-		}
-		if (x > 0.5){
-			Debug.Log("Rotate right");
-			transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
-		}
+		var targetCharacterOrientation = Quaternion.Euler(targetCharacterDirection);
+
+		var yRotation = Quaternion.AngleAxis(x, Vector3.up);
+		transform.localRotation = yRotation * targetCharacterOrientation;
+
+		// if(x < 0.5){
+		// 	Debug.Log("Rotate left");
+		// 	transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime * -1);
+		// }
+		// if (x > 0.5){
+		// 	Debug.Log("Rotate right");
+		// 	transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+		// }
 
 		// if(y>forwardMovementThreshold){		
 		// 	movementSpeed = Mathf.Lerp(minMovementSpeed, maxMovementSpeed, ((y-forwardMovementThreshold)*2.5f));
