@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControllerHeadEye : MonoBehaviour {
 	public float rotationSpeed = 50.0f;
@@ -9,7 +10,7 @@ public class PlayerControllerHeadEye : MonoBehaviour {
 	
 	public float minMovementSpeed = 1.0f;
 
-	float movementSpeed = 5.0f;
+	public float movementSpeed = 5.0f;
 	public float leftTurnThreshold = 0.4f;
 
 	public float rightTurnThreshold = 0.6f;
@@ -18,8 +19,18 @@ public class PlayerControllerHeadEye : MonoBehaviour {
 
 	public float forwardMovementThreshold = 0.55f;
 
+	public Slider sliderx, slidery;
+
+	public Image FillX, FillY;
+
+	public Camera mainCamera;
+
+ 	Rigidbody rb;
+
+	 Vector3 newPosition;
+
 	void Start () {
-		
+		rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -34,6 +45,8 @@ public class PlayerControllerHeadEye : MonoBehaviour {
 				Debug.Log(PupilData._2D.GazePosition);				
 
 				checkRotation(PupilData._2D.GazePosition.x, PupilData._2D.GazePosition.y);
+				sliderx.value = PupilData._2D.GazePosition.x;
+				slidery.value = PupilData._2D.GazePosition.y;
 			}
 			else if (PupilTools.CalibrationMode == Calibration.Mode._3D)
 			{
@@ -57,13 +70,19 @@ public class PlayerControllerHeadEye : MonoBehaviour {
 		// }
 
 		if(y>forwardMovementThreshold){		
-			movementSpeed = Mathf.Lerp(minMovementSpeed, maxMovementSpeed, ((y-forwardMovementThreshold)*2.5f));
-			transform.position += Camera.main.transform.forward * Time.deltaTime * movementSpeed;
+			//movementSpeed = Mathf.Lerp(minMovementSpeed, maxMovementSpeed, ((y-forwardMovementThreshold)*2.5f));
+			newPosition = mainCamera.transform.forward * Time.deltaTime * movementSpeed;
+			rb.MovePosition(transform.position + newPosition);
+			//transform.position += transform.forward * Time.deltaTime * movementSpeed;
+			FillY.color = Color.green;
 		}
 
 		if(y<backWardMovementThreshold){
-			movementSpeed = Mathf.Lerp(minMovementSpeed, maxMovementSpeed, ((backWardMovementThreshold-y)*2.5f));		
-			transform.position += Camera.main.transform.forward * Time.deltaTime * movementSpeed * -1;
+			//movementSpeed = Mathf.Lerp(minMovementSpeed, maxMovementSpeed, ((backWardMovementThreshold-y)*2.5f));		
+			newPosition = mainCamera.transform.forward * Time.deltaTime * movementSpeed * -1;
+			rb.MovePosition(transform.position + newPosition);
+			//transform.position += transform.forward * Time.deltaTime * movementSpeed * -1;
+			FillY.color = Color.red;
 		}
 
 	}
