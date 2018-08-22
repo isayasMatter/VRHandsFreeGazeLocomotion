@@ -37,7 +37,7 @@ public class tiltController : MonoBehaviour {
         if (headRoll > 180 && headRoll < minRightRoll)
         {
             Vector3 newPos = playerCam.transform.right * speed * Time.deltaTime;
-            newPos.y = transform.position.y;
+            //newPos.y = transform.position.y;
             // move to the right            
            rb.MovePosition(transform.position + newPos);
         }
@@ -45,7 +45,7 @@ public class tiltController : MonoBehaviour {
         if(headRoll <= 180 && headRoll > minLeftRoll)
         {
             Vector3 newPos = playerCam.transform.right * speed * Time.deltaTime;
-            newPos.y = transform.position.y;
+            //newPos.y = transform.position.y;
             // move to the left
             rb.MovePosition(transform.position - newPos);
         }
@@ -53,15 +53,15 @@ public class tiltController : MonoBehaviour {
         if(headPitch > 180 && headPitch < minBackPitch)
         {
             Vector3 newPos = playerCam.transform.forward * speed * Time.deltaTime;
-            newPos.y = transform.position.y;
+            //newPos.y = transform.position.y;
             rb.MovePosition(transform.position - newPos);
         }
 
         if(headPitch < 180)
         {
-            //speed = Mathf.Lerp(0,100,(1-(headPitch/180)));
+            
             Vector3 newPos = playerCam.transform.forward * speed * Time.deltaTime;
-            newPos.y = transform.position.y;
+            //newPos.y = transform.position.y;
             rb.MovePosition(transform.position + newPos);
         }
 
