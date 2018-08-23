@@ -13,7 +13,7 @@ public class ExperimentController : MonoBehaviour {
 	void Start () {
 		tiltScript = GetComponent<tiltController>();
 		gazeScript = GetComponent<PlayerControllerHeadEye>();	
-		slider.enabled =  false;
+		slider.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -22,13 +22,13 @@ public class ExperimentController : MonoBehaviour {
 			menuText.enabled = false;			
 			gazeScript.enabled = false;
 			tiltScript.enabled = true;	
-			slider.enabled = false;		
+			slider.gameObject.SetActive(false);		
 		}
 		if(Input.GetKey("g")){
 			menuText.enabled = false;	
 			tiltScript.enabled = false;
 			gazeScript.enabled = true;
-			slider.enabled = true;
+			slider.gameObject.SetActive(true);
 		}
 	}
 }
